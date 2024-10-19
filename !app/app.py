@@ -2,12 +2,14 @@ import pickle
 import pandas as pd
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.template_folder = "./templates"
+
 
 @app.route("/")
 def main():
     return render_template("index.html")
+
 
 @app.route("/prediction", methods=["POST"])
 def prediction():
